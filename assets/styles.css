@@ -1545,3 +1545,53 @@ footer{view-transition-name:mt-foot}
   margin-top:var(--space-5);border-radius:var(--r-lg);
   box-shadow:var(--shadow-2, 0 24px 60px rgba(27,35,26,.18));
 }
+
+/* ============================================================
+   MATERIAŁY WIDEO KLIENTA (dodane 12.08.2026)
+   Film z gry terenowej „Kod Da Vinci" przysłany przez klienta.
+   Zasady: hero-wideo startuje TYLKO na dużym ekranie, przy braku
+   trybu oszczędzania danych i przy braku prefers-reduced-motion —
+   na telefonie zostaje samo zdjęcie (poster), zero pobierania.
+   ============================================================ */
+.hero-cine>.hero-vid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
+  z-index:0;opacity:0;transition:opacity 1.1s ease;pointer-events:none;background:#0F1D12}
+.hero-cine>.hero-vid.gra{opacity:1}
+
+.film-sekcja{background:var(--paper-2);border-block:var(--hairline)}
+.film-sekcja .head{margin-bottom:var(--space-7)}
+.filmbox{max-width:1040px;margin-inline:auto}
+.film-play{display:block;position:relative;width:100%;padding:0;border:0;background:none;
+  cursor:pointer;border-radius:2px;overflow:hidden;line-height:0}
+.film-play>img{width:100%;height:auto;display:block;
+  transition:transform var(--img-dur) var(--img-ease),filter var(--img-dur) var(--img-ease)}
+@media(hover:hover){
+  .film-play>img{filter:var(--img-rest)}
+  .film-play:hover>img{transform:scale(var(--img-zoom));filter:var(--img-hot)}
+  .film-play:hover .film-btn{background:var(--accent);color:#fff;transform:translate(-50%,-50%) scale(1.06)}
+}
+.film-play:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.film-btn{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:88px;height:88px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(255,255,255,.92);color:#0F1D12;
+  box-shadow:0 10px 40px rgba(15,29,18,.35);
+  transition:background .35s ease,color .35s ease,transform .35s ease}
+.film-btn svg{margin-left:5px}
+.film-czas{position:absolute;right:14px;bottom:14px;background:rgba(15,29,18,.78);color:#fff;
+  font-size:.78rem;letter-spacing:.06em;padding:5px 10px;border-radius:2px;line-height:1.2}
+.filmbox video{width:100%;height:auto;display:block;background:#0F1D12}
+@media(max-width:680px){
+  .film-btn{width:64px;height:64px}
+  .film-btn svg{width:26px;height:26px}
+}
+
+/* Sekcja „Dla kogo" na ofercie (12.08.2026) — prośba klienta o rozbicie na firmy,
+   szkoły i małe grupy. Zdjęcia niosą treść, akapity pod nimi tylko doprecyzowują. */
+.dla-kogo{background:var(--paper-2);border-block:var(--hairline)}
+.dk-opisy{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space-6);margin-top:var(--space-6)}
+.dk-opisy p{color:var(--muted);margin:0}
+.dk-opisy b{color:var(--ink);font-weight:600}
+@media(max-width:900px){.dk-opisy{grid-template-columns:1fr;gap:var(--space-4)}}
+
+/* Kontrast: akapity na tle --paper-2 (sekcje film i „dla kogo") czytane z pikseli
+   dawały 4,39:1 przy kolorze --muted. Przechodzimy na --ink-soft (7,4:1). */
+.film-sekcja .head p,.dla-kogo .head p,.dk-opisy p{color:var(--ink-soft)}
