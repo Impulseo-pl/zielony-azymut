@@ -20,9 +20,41 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=40cfc22f">
+<link rel="stylesheet" href="assets/styles.css?v=77268d8d">
+<script>
+/* WEJŚCIE — zasłona z banerem marki klienta (wzorzec z Meble FRONT, 12.08.2026).
+   Pokazujemy RAZ na wizytę, nie przy każdej podstronie. Zasłona jest domyślnie
+   wyłączona w CSS i włącza ją dopiero ten skrypt — przy wyłączonym JS albo przy
+   błędzie nikt nie utknie na pustym ekranie. */
+(function(){
+  try{
+    if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+    /* ?intro na końcu adresu = wejście zagra jeszcze raz (do pokazywania klientowi) */
+    var znowu = location.search.indexOf('intro') > -1;
+    if (!znowu && sessionStorage.getItem('za-intro')) return;
+    sessionStorage.setItem('za-intro','1');
+    var h = document.documentElement;
+    h.classList.add('intro-on');
+    requestAnimationFrame(function(){ h.classList.add('intro-gra'); });
+    var zdjete = false;
+    function koniec(){
+      if (zdjete) return; zdjete = true;
+      h.classList.add('intro-out');
+      setTimeout(function(){ h.classList.remove('intro-on','intro-gra','intro-out'); }, 900);
+    }
+    setTimeout(koniec, 2300);
+    /* twardy bezpiecznik: cokolwiek by nie padło, po 4,5 s zasłony nie ma */
+    setTimeout(function(){ h.classList.remove('intro-on','intro-gra','intro-out'); }, 4500);
+    document.addEventListener('click', koniec);
+    window.addEventListener('wheel', koniec, {passive:true});
+    window.addEventListener('touchstart', koniec, {passive:true});
+    window.addEventListener('keydown', koniec);
+  }catch(e){}
+})();
+</script>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><img src="img/marka-baner.jpg" alt="" width="1400" height="777" fetchpriority="high"></div>
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -110,7 +142,31 @@
     <div class="svc-grid">
       <div class="svc reveal"><div class="ic">Krok 01</div><h3>Rozmowa</h3><p>Mówicie, ile osób, jaki poziom i na kiedy planujecie szkolenie.</p></div>
       <div class="svc reveal"><div class="ic">Krok 02</div><h3>Program i cena</h3><p>Dostajecie plan zajęć i konkretną cenę, zanim cokolwiek potwierdzimy.</p></div>
-      <div class="svc reveal"><div class="ic">Krok 03</div><h3>Wyjazd</h3><p>Prowadzimy zajęcia w terenie, zgodnie z ustalonym planem.</p></div>
+      <div class="svc reveal"><div class="ic">Krok 03</div><h3>Szkolenie</h3><p>Prowadzimy zajęcia w terenie, zgodnie z ustalonym planem.</p></div>
+    </div>
+  </div>
+</section>
+<section class="materialy">
+  <div class="wrap mat-grid">
+    <a class="mat-art reveal" href="img/plakat.jpg" target="_blank" rel="noopener"
+       aria-label="Otwórz plakat z programem szkolenia w pełnym rozmiarze">
+      <img src="img/plakat.jpg" alt="Plakat Zielonego Azymutu z programem szkolenia surwiwalowego"
+           loading="lazy" decoding="async" width="1024" height="1536">
+      <span class="mat-lupa">Otwórz w pełnym rozmiarze</span>
+    </a>
+    <div class="mat-copy reveal">
+      <span class="eyebrow">Materiały</span>
+      <h2>Program szkolenia w skrócie</h2>
+      <p class="muted">Sześć bloków, które przechodzimy w terenie: surwiwal i przetrwanie,
+      orientacja i gry terenowe, budowa schronienia i ognia, pierwsza pomoc,
+      sprzęt z taktyką i psychologią oraz praktyka w realnych warunkach.</p>
+      <ul class="mat-lista">
+        <li><b>Termin</b> do uzgodnienia z grupą</li>
+        <li><b>Miejsce</b> Słonne i okolice</li>
+        <li><b>Dla kogo</b> początkujący i zaawansowani</li>
+        <li><b>Grupy</b> małe - każdy ćwiczy sam, nie patrzy na innych</li>
+      </ul>
+      <a href="kontakt.html" class="btn btn-accent">Zapytaj o termin <span class="arr">→</span></a>
     </div>
   </div>
 </section>

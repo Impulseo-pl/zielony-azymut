@@ -1446,3 +1446,102 @@ footer{view-transition-name:mt-foot}
    `position:absolute` z base.css — więc ciemny tekst lądował NA jasnym zdjęciu
    (zmierzone 1.4-1.8:1 przy wymaganych 3.6:1). Wymuszamy biel na kaflu. */
 .gallery .tile .cap, .gallery .tile .cap small{color:#fff}
+
+
+/* ============================================================
+   WEJŚCIE — zasłona z banerem marki klienta (12.08.2026)
+   Wzorzec z Meble FRONT. Zasłona jest domyślnie WYŁĄCZONA (display:none)
+   i włącza ją dopiero skrypt w <head>: przy wyłączonym JS albo przy błędzie
+   nikt nie utknie na pustym ekranie. Gra RAZ na wizytę (sessionStorage),
+   ?intro na końcu adresu odpala ją ponownie — do pokazywania klientowi.
+   ============================================================ */
+#intro{display:none}
+.intro-on #intro{
+  display:flex;position:fixed;inset:0;z-index:100;
+  align-items:center;justify-content:center;
+  background:var(--dark);           /* ciemna zieleń z logo klienta */
+  opacity:1;transition:opacity .9s ease;
+}
+.intro-on #intro img{
+  width:min(78vw,760px);height:auto;border-radius:14px;
+  box-shadow:0 30px 80px rgba(0,0,0,.45);
+  opacity:0;transform:scale(.965);
+  transition:opacity .8s ease, transform 1.5s cubic-bezier(.16,.84,.44,1);
+}
+.intro-on.intro-gra #intro img{opacity:1;transform:scale(1)}
+.intro-on.intro-out #intro{opacity:0;pointer-events:none}
+.intro-on body{overflow:hidden}
+
+/* treść hero wchodzi kaskadą DOPIERO po zdjęciu zasłony */
+.hero-cine .hero-copy>*{transition:opacity .75s ease, transform .75s cubic-bezier(.16,.84,.44,1)}
+.hero-cine .hero-copy>*:nth-child(1){transition-delay:.10s}
+.hero-cine .hero-copy>*:nth-child(2){transition-delay:.24s}
+.hero-cine .hero-copy>*:nth-child(3){transition-delay:.38s}
+.hero-cine .hero-copy>*:nth-child(4){transition-delay:.52s}
+.intro-on:not(.intro-out) .hero-cine .hero-copy>*{
+  opacity:0;transform:translateY(14px);transition-delay:0s;
+}
+
+@media (max-width:560px){
+  .intro-on #intro img{width:92vw;border-radius:10px}
+}
+@media (prefers-reduced-motion:reduce){
+  .intro-on #intro{display:none}
+  .intro-on body{overflow:auto}
+  .hero-cine .hero-copy>*{transition:none !important;transform:none !important;opacity:1 !important}
+}
+
+
+/* ============================================================
+   MATERIAŁY OD KLIENTA — plakat z programem i wizytówka (12.08.2026)
+   Klient przysłał je sam, więc pokazujemy je na stronie zamiast trzymać w mailu.
+   ============================================================ */
+.materialy{background:var(--paper-2)}
+.mat-grid{
+  display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1fr);
+  gap:var(--space-9);align-items:center;
+}
+.mat-art{
+  position:relative;display:block;border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:var(--shadow-2, 0 24px 60px rgba(27,35,26,.18));
+  background:var(--paper);
+}
+.mat-art img{
+  display:block;width:100%;height:auto;
+  transform:scale(1);filter:var(--img-rest);
+  transition:transform var(--img-dur) var(--img-ease), filter var(--img-dur) var(--img-ease);
+}
+@media (hover:hover){
+  .mat-art:hover img{transform:scale(var(--img-zoom));filter:var(--img-hot)}
+}
+.mat-lupa{
+  position:absolute;left:var(--space-4);bottom:var(--space-4);
+  background:rgba(15,29,18,.86);color:#fff;
+  font-size:var(--text-sm);letter-spacing:.02em;
+  padding:.5rem .85rem;border-radius:var(--r-sm);
+  opacity:0;transform:translateY(6px);
+  transition:opacity .3s var(--ease), transform .3s var(--ease);
+}
+.mat-art:hover .mat-lupa,.mat-art:focus-visible .mat-lupa{opacity:1;transform:none}
+.mat-lista{list-style:none;padding:0;margin:var(--space-6) 0 var(--space-7)}
+.mat-lista li{
+  padding:var(--space-5) 0;border-top:1px solid var(--line);
+  color:var(--ink-soft);font-size:var(--text-base);line-height:1.5;
+}
+.mat-lista li:last-child{border-bottom:1px solid var(--line)}
+.mat-lista b{
+  display:inline-block;min-width:7.5rem;color:var(--muted);
+  font-weight:600;font-size:var(--text-sm);letter-spacing:.06em;text-transform:uppercase;
+}
+@media (max-width:900px){
+  .mat-grid{grid-template-columns:1fr;gap:var(--space-7)}
+  .mat-art{max-width:480px;margin-inline:auto}
+  .mat-lista b{min-width:6.5rem}
+}
+
+.wizytowka-sec{padding-top:0}
+.wizytowka{
+  display:block;width:100%;max-width:760px;height:auto;
+  margin-top:var(--space-5);border-radius:var(--r-lg);
+  box-shadow:var(--shadow-2, 0 24px 60px rgba(27,35,26,.18));
+}
