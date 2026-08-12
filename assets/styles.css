@@ -5,18 +5,20 @@
    ============================================================ */
 
 :root{
-  /* PALETA — jasna, architektoniczna, chłodna */
-  --paper:#F3F1EC;          /* główne tło */
-  --paper-2:#E6E3DB;        /* sekcje alternatywne (chłodny jasny szary) */
-  --paper-3:#E6E3DB;        /* delikatne wypełnienia */
-  --ink:#23211E;            /* tekst główny — chłodny grafit */
-  --ink-soft:#43403A;       /* nagłówki drugorzędne */
-  --muted:#87837A;          /* tekst poboczny */
-  --line:rgba(35,33,30,.12);/* hairline */
-  --accent:#8A6B3C;         /* stonowany petrol-slate — jedyny akcent */
-  --accent-d:#6E5430;
-  --accent-soft:rgba(138,107,60,.10);
-  --dark:#23211E;           /* sekcje ciemne (stopka/CTA) */
+  /* PALETA — zdjęta z LOGO klienta (12.08.2026): oliwka #71782F, ciemna zieleń #041910,
+     krem #F5E5CC. Akcent przyciemniony do #5E6A28, żeby biały tekst na przycisku
+     przechodził WCAG AA (5,9:1) — sam kolor z logo dawał 4,6:1. */
+  --paper:#F3F1E9;          /* główne tło — ciepły krem z logo */
+  --paper-2:#E7E3D5;        /* sekcje alternatywne */
+  --paper-3:#E7E3D5;        /* delikatne wypełnienia */
+  --ink:#1B231A;            /* tekst główny — zielona czerń */
+  --ink-soft:#3A4237;       /* nagłówki drugorzędne */
+  --muted:#7C8177;          /* tekst poboczny */
+  --line:rgba(27,35,26,.12);/* hairline */
+  --accent:#5E6A28;         /* oliwka z logo — jedyny akcent */
+  --accent-d:#4A5420;
+  --accent-soft:rgba(94,106,40,.10);
+  --dark:#0F1D12;           /* sekcje ciemne (stopka/CTA) — ciemna zieleń z logo */
 
   /* HOVER ZDJĘĆ — JEDEN standard dla całego silnika (decyzja K. 04.08.2026, artefakt z wariantami).
      AKTUALNE (K.+Szymon 09.08.2026, wybór z artefaktu 6 wariantów): zoom 1.05 przy 1.4s -
@@ -1418,8 +1420,11 @@ footer{view-transition-name:mt-foot}
 }
 
 
-/* === auto-paleta z marki klienta (źródło: logo) === */
-:root{--accent:#00843F;--accent-d:#006E2B;--accent-soft:rgba(0,132,63,0.10);--paper:#F6FCF8;--paper-2:#E9F3EC;--paper-3:#DDEAE0;--ink:#16241A;--ink-soft:#3B4D40;--muted:#728076;--line:rgba(22,36,26,.12);}
+/* === auto-paleta z marki klienta (źródło: logo) ===
+   ZDJĘTA 12.08.2026 z NOWEGO logo, które klient przysłał sam (kompas + las):
+   oliwka #71782F, ciemna zieleń #041910, krem #F5E5CC. Poprzednia paleta pochodziła
+   ze starego, jaskrawozielonego logo (#00843F) i gryzła się z rebrandingiem klienta. */
+:root{--accent:#5E6A28;--accent-d:#4A5420;--accent-soft:rgba(94,106,40,0.10);--paper:#F3F1E9;--paper-2:#E7E3D5;--paper-3:#DED9C8;--ink:#1B231A;--ink-soft:#3A4237;--line:rgba(27,35,26,.12);}
 .btn-accent{color:#fff}
 .nav .nav-links a.btn-accent{color:#fff}
 .btn-accent[data-accent-d],.cta-d .btn-accent{color:#fff}
