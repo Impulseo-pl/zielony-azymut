@@ -20,41 +20,22 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=ceebd488">
-<script>
-/* WEJŚCIE — zasłona z banerem marki klienta (wzorzec z Meble FRONT, 12.08.2026).
-   Pokazujemy RAZ na wizytę, nie przy każdej podstronie. Zasłona jest domyślnie
-   wyłączona w CSS i włącza ją dopiero ten skrypt — przy wyłączonym JS albo przy
-   błędzie nikt nie utknie na pustym ekranie. */
-(function(){
-  try{
-    if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    /* ?intro na końcu adresu = wejście zagra jeszcze raz (do pokazywania klientowi) */
-    var znowu = location.search.indexOf('intro') > -1;
-    if (!znowu && sessionStorage.getItem('za-intro')) return;
-    sessionStorage.setItem('za-intro','1');
-    var h = document.documentElement;
-    h.classList.add('intro-on');
-    requestAnimationFrame(function(){ h.classList.add('intro-gra'); });
-    var zdjete = false;
-    function koniec(){
-      if (zdjete) return; zdjete = true;
-      h.classList.add('intro-out');
-      setTimeout(function(){ h.classList.remove('intro-on','intro-gra','intro-out'); }, 900);
-    }
-    setTimeout(koniec, 2300);
-    /* twardy bezpiecznik: cokolwiek by nie padło, po 4,5 s zasłony nie ma */
-    setTimeout(function(){ h.classList.remove('intro-on','intro-gra','intro-out'); }, 4500);
-    document.addEventListener('click', koniec);
-    window.addEventListener('wheel', koniec, {passive:true});
-    window.addEventListener('touchstart', koniec, {passive:true});
-    window.addEventListener('keydown', koniec);
-  }catch(e){}
-})();
-</script>
+<link rel="stylesheet" href="assets/styles.css?v=40cfc22f">
+
+<style>
+/* PASEK ARCHIWALNY - dodany 13.08.2026, żeby nikt nie wziął starej wersji za aktualną. */
+.arch-pas{position:fixed;left:0;right:0;top:0;z-index:200;display:flex;gap:.75rem;
+  align-items:center;justify-content:center;flex-wrap:wrap;
+  background:#1d2412;color:#f5e5cc;font:600 .85rem/1.3 system-ui,-apple-system,'Manrope',sans-serif;
+  padding:.6rem 1rem;box-shadow:0 2px 12px -6px rgba(0,0,0,.6)}
+.arch-pas a{color:#cfe08a;text-decoration:underline;text-underline-offset:2px}
+body{padding-top:2.6rem}
+@media(max-width:520px){.arch-pas{font-size:.78rem;padding:.5rem .7rem}body{padding-top:3.4rem}}
+</style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><img src="img/marka-baner.jpg" alt="" width="1400" height="777" fetchpriority="high"></div>
+<div class="arch-pas">Podgląd archiwalny - wersja z 12 sierpnia (rano). <a href="../../index.html">Wróć do aktualnej strony</a> <a href="../index.html">Wszystkie wersje</a></div>
+
 
 <header class="nav">
   <div class="wrap nav-inner">
@@ -63,8 +44,7 @@
       <a href="index.html">Strona główna</a>
       <a href="realizacje.html">Galeria</a>
       <a href="oferta.html" class="active" aria-current="page">Oferta</a>
-      <a href="dla-kogo.html">Dla kogo</a>
-<a href="o-nas.html">O nas</a>
+      <a href="o-nas.html">O nas</a>
       <a href="kontakt.html">Kontakt</a>
       <a href="kontakt.html" class="btn btn-accent">Zapytaj o termin</a>
     </nav>
@@ -74,7 +54,7 @@
 
 <main>
 <section class="pagehead">
-  <img src="img/oferta-head.jpg" alt="Instruktor Zielonego Azymutu przygotowuje zadanie w lesie" decoding="async" width="1800" height="1201">
+  <img src="img/oferta-head.jpg" alt="Zielony Azymut - schronienie zbudowane podczas szkolenia" decoding="async" width="1880" height="1253">
   <div class="wrap">
     <span class="eyebrow">Co organizujemy</span>
     <h1>Szkolenia i zajęcia w terenie</h1>
@@ -84,7 +64,7 @@
 <section>
   <div class="wrap">
     <div class="svc-row reveal">
-      <div class="svc-row-art"><img src="img/g6.jpg" alt="Wyposażenie survivalowe rozłożone przed zajęciami" loading="lazy" decoding="async" width="1600" height="1067"></div>
+      <div class="svc-row-art"><img src="img/g6.jpg" alt="Szkolenia survivalowe" loading="lazy" decoding="async" width="1500" height="1000"></div>
       <div>
         <span class="num">01</span>
         <h3>Szkolenia survivalowe</h3>
@@ -92,7 +72,7 @@
       </div>
     </div>
     <div class="svc-row rev reveal">
-      <div class="svc-row-art"><img src="img/g16.jpg" alt="Ekwipunek do rozpalania ognia i przetrwania" loading="lazy" decoding="async" width="1600" height="1067"></div>
+      <div class="svc-row-art"><img src="img/g1.jpg" alt="Budowa schronienia i ognia" loading="lazy" decoding="async" width="1500" height="1000"></div>
       <div>
         <span class="num">02</span>
         <h3>Budowa schronienia i ognia</h3>
@@ -100,15 +80,15 @@
       </div>
     </div>
     <div class="svc-row reveal">
-      <div class="svc-row-art"><img src="img/g14.jpg" alt="Nauka posługiwania się kompasem w terenie" loading="lazy" decoding="async" width="1600" height="1067"></div>
+      <div class="svc-row-art"><img src="img/g4.jpg" alt="Orientacja i nawigacja" loading="lazy" decoding="async" width="1400" height="933"></div>
       <div>
         <span class="num">03</span>
-        <h3>Orientacja i gracz terenowy</h3>
+        <h3>Orientacja i nawigacja</h3>
         <p class="muted">Mapa, kompas, wyznaczanie azymutu i odnajdywanie punktów w terenie. Zajęcia w lesie, nie przy tablicy.</p>
       </div>
     </div>
     <div class="svc-row rev reveal">
-      <div class="svc-row-art"><img src="img/g8.jpg" alt="Ćwiczenia w małej grupie w terenie" loading="lazy" decoding="async" width="1600" height="1067"></div>
+      <div class="svc-row-art"><img src="img/g11.jpg" alt="Pierwsza pomoc w terenie" loading="lazy" decoding="async" width="1400" height="933"></div>
       <div>
         <span class="num">04</span>
         <h3>Pierwsza pomoc w terenie</h3>
@@ -116,7 +96,7 @@
       </div>
     </div>
     <div class="svc-row reveal">
-      <div class="svc-row-art"><img src="img/g17.jpg" alt="Przejście przez trudny teren podczas szkolenia" loading="lazy" decoding="async" width="1600" height="1067"></div>
+      <div class="svc-row-art"><img src="img/g2.jpg" alt="Szkolenia z elementami SERE" loading="lazy" decoding="async" width="1500" height="1000"></div>
       <div>
         <span class="num">05</span>
         <h3>Szkolenia z elementami SERE</h3>
@@ -124,33 +104,13 @@
       </div>
     </div>
     <div class="svc-row rev reveal">
-      <div class="svc-row-art"><img src="img/g3.jpg" alt="Kryptex z szyfrem w grze terenowej Kod Da Vinci" loading="lazy" decoding="async" width="1600" height="1067"></div>
+      <div class="svc-row-art"><img src="img/g3.jpg" alt="Gry terenowe i integracje" loading="lazy" decoding="async" width="1500" height="1000"></div>
       <div>
         <span class="num">06</span>
         <h3>Gry terenowe i integracje</h3>
-        <p class="muted">Nasz autorski scenariusz <b>Kod Da Vinci</b>: szyfry, kryptex, mapa i kod do sejfu, a na starcie telefony lądują w skrzynce. Prowadzimy go dla firm, szkół i grup prywatnych - trasę układamy pod teren i termin.</p>
+        <p class="muted">Trasa z zadaniami do rozwiązania w grupie - dla firm, grup zorganizowanych i szkół. Scenariusz układamy pod teren i termin.</p>
       </div>
     </div>
-  </div>
-</section>
-<section class="dla-kogo">
-  <div class="wrap">
-    <div class="head reveal">
-      <span class="eyebrow">Dla kogo</span>
-      <h2>Trzy tryby pracy z grupą</h2>
-      <p>Ten sam teren i ten sam instruktor, inny scenariusz i inne tempo.</p>
-    </div>
-    <div class="gateways">
-      <a href="dla-kogo.html#firmy" class="gateway reveal"><img src="img/g9.jpg" alt="Sejf szyfrowy - zadanie na koniec trasy" loading="lazy" decoding="async" width="1600" height="1067"><span class="g-ttl">Firmy i integracje</span></a>
-      <a href="dla-kogo.html#szkoly" class="gateway reveal"><img src="img/g10.jpg" alt="Uczniowie biegną leśną ścieżką" loading="lazy" decoding="async" width="1600" height="1067"><span class="g-ttl">Szkoły i klasy</span></a>
-      <a href="dla-kogo.html#male-grupy" class="gateway reveal"><img src="img/g5.jpg" alt="Mała grupa rozwiązuje szyfr na kryptexie" loading="lazy" decoding="async" width="1800" height="1200"><span class="g-ttl">Małe grupy i rodziny</span></a>
-    </div>
-    <div class="dk-opisy">
-      <p><b>Firmy i integracje.</b> Zespół dzielimy na drużyny, a zadania wymagają dogadania się - nie siły. Do uzgodnienia catering przy ognisku i długość dnia.</p>
-      <p><b>Szkoły i klasy.</b> Program pod wiek uczniów, z opiekunami ustalonym wcześniej planem i listą rzeczy do zabrania. Jeden dzień albo kilka dni.</p>
-      <p><b>Małe grupy i rodziny.</b> Kameralnie, w swoim tempie: urodziny, wyjazd znajomych, pierwsze szkolenie survivalowe od podstaw.</p>
-    </div>
-      <div style="margin-top:var(--space-7)" class="reveal"><a href="dla-kogo.html" class="btn btn-accent">Zobacz szczegóły dla każdej grupy <span class="arr">→</span></a></div>
   </div>
 </section>
 <section class="trust">
@@ -163,31 +123,7 @@
     <div class="svc-grid">
       <div class="svc reveal"><div class="ic">Krok 01</div><h3>Rozmowa</h3><p>Mówicie, ile osób, jaki poziom i na kiedy planujecie szkolenie.</p></div>
       <div class="svc reveal"><div class="ic">Krok 02</div><h3>Program i cena</h3><p>Dostajecie plan zajęć i konkretną cenę, zanim cokolwiek potwierdzimy.</p></div>
-      <div class="svc reveal"><div class="ic">Krok 03</div><h3>Szkolenie</h3><p>Prowadzimy zajęcia w terenie, zgodnie z ustalonym planem.</p></div>
-    </div>
-  </div>
-</section>
-<section class="materialy">
-  <div class="wrap mat-grid">
-    <a class="mat-art reveal" href="img/plakat.jpg" target="_blank" rel="noopener"
-       aria-label="Otwórz plakat z programem szkolenia w pełnym rozmiarze">
-      <img src="img/plakat.jpg" alt="Plakat Zielonego Azymutu z programem szkolenia surwiwalowego"
-           loading="lazy" decoding="async" width="1024" height="1536">
-      <span class="mat-lupa">Otwórz w pełnym rozmiarze</span>
-    </a>
-    <div class="mat-copy reveal">
-      <span class="eyebrow">Materiały</span>
-      <h2>Program szkolenia w skrócie</h2>
-      <p class="muted">Sześć bloków, które przechodzimy w terenie: surwiwal i przetrwanie,
-      orientacja i gry terenowe, budowa schronienia i ognia, pierwsza pomoc,
-      sprzęt z taktyką i psychologią oraz praktyka w realnych warunkach.</p>
-      <ul class="mat-lista">
-        <li><b>Termin</b> do uzgodnienia z grupą</li>
-        <li><b>Miejsce</b> Słonne i okolice</li>
-        <li><b>Dla kogo</b> początkujący i zaawansowani</li>
-        <li><b>Grupy</b> małe - każdy ćwiczy sam, nie patrzy na innych</li>
-      </ul>
-      <a href="kontakt.html" class="btn btn-accent">Zapytaj o termin <span class="arr">→</span></a>
+      <div class="svc reveal"><div class="ic">Krok 03</div><h3>Wyjazd</h3><p>Prowadzimy zajęcia w terenie, zgodnie z ustalonym planem.</p></div>
     </div>
   </div>
 </section>
@@ -218,7 +154,6 @@
         <a href="index.html">Strona główna</a>
         <a href="realizacje.html">Galeria</a>
         <a href="oferta.html">Oferta</a>
-        <a href="dla-kogo.html">Dla kogo</a>
         <a href="o-nas.html">O nas</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
@@ -241,6 +176,6 @@
 <div class="sticky-reserve"><a class="sr-book" href="kontakt.html">Zapytaj o termin</a><a class="sr-call" href="tel:+48884033800" aria-label="Zadzwoń"><svg class="ico-tel" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2Z" fill="currentColor"/></svg></a></div>
 <div class="demo-wazne" data-do="2026-08-17" data-cykl="3" hidden><svg class="dw-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.2V12l3.3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="dw-txt"></span></div>
 
-<script src="assets/main.js?v=3de5f03c"></script>
+<script src="assets/main.js"></script>
 </body>
 </html>

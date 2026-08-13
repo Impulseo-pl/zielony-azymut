@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=ceebd488">
+<link rel="stylesheet" href="assets/styles.css?v=3e3bb1b4">
 <script>
 /* WEJŚCIE — zasłona z banerem marki klienta (wzorzec z Meble FRONT, 12.08.2026).
    Pokazujemy RAZ na wizytę, nie przy każdej podstronie. Zasłona jest domyślnie
@@ -52,8 +52,21 @@
   }catch(e){}
 })();
 </script>
+
+<style>
+/* PASEK ARCHIWALNY - dodany 13.08.2026, żeby nikt nie wziął starej wersji za aktualną. */
+.arch-pas{position:fixed;left:0;right:0;top:0;z-index:200;display:flex;gap:.75rem;
+  align-items:center;justify-content:center;flex-wrap:wrap;
+  background:#1d2412;color:#f5e5cc;font:600 .85rem/1.3 system-ui,-apple-system,'Manrope',sans-serif;
+  padding:.6rem 1rem;box-shadow:0 2px 12px -6px rgba(0,0,0,.6)}
+.arch-pas a{color:#cfe08a;text-decoration:underline;text-underline-offset:2px}
+body{padding-top:2.6rem}
+@media(max-width:520px){.arch-pas{font-size:.78rem;padding:.5rem .7rem}body{padding-top:3.4rem}}
+</style>
 </head>
 <body>
+<div class="arch-pas">Podgląd archiwalny - wersja z 12 sierpnia (wieczorem). <a href="../../index.html">Wróć do aktualnej strony</a> <a href="../index.html">Wszystkie wersje</a></div>
+
 <div id="intro" aria-hidden="true"><img src="img/marka-baner.jpg" alt="" width="1400" height="777" fetchpriority="high"></div>
 
 <header class="nav">
@@ -103,7 +116,7 @@
       <div class="svc-row-art"><img src="img/g14.jpg" alt="Nauka posługiwania się kompasem w terenie" loading="lazy" decoding="async" width="1600" height="1067"></div>
       <div>
         <span class="num">03</span>
-        <h3>Orientacja i gracz terenowy</h3>
+        <h3>Orientacja i nawigacja</h3>
         <p class="muted">Mapa, kompas, wyznaczanie azymutu i odnajdywanie punktów w terenie. Zajęcia w lesie, nie przy tablicy.</p>
       </div>
     </div>
@@ -241,6 +254,6 @@
 <div class="sticky-reserve"><a class="sr-book" href="kontakt.html">Zapytaj o termin</a><a class="sr-call" href="tel:+48884033800" aria-label="Zadzwoń"><svg class="ico-tel" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2Z" fill="currentColor"/></svg></a></div>
 <div class="demo-wazne" data-do="2026-08-17" data-cykl="3" hidden><svg class="dw-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.2V12l3.3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="dw-txt"></span></div>
 
-<script src="assets/main.js?v=3de5f03c"></script>
+<script src="assets/main.js"></script>
 </body>
 </html>

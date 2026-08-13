@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kontakt - Zielony Azymut, szkolenia survivalowe Podkarpacie</title>
-<meta name="description" content="Skontaktuj się z Zielonym Azymutem - szkolenia survivalowe, gry terenowe i integracje. Telefon 884 033 800, Słonne i okolice, woj. podkarpackie.">
+<title>Kontakt - Zielony Azymut</title>
+<meta name="description" content="Kontakt Zielony Azymut - woj. podkarpackie">
 <link rel="canonical" href="https://impulseo-pl.github.io/zielony-azymut/kontakt.html">
 <meta name="robots" content="noindex, nofollow">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pl_PL">
 <meta property="og:site_name" content="Zielony Azymut">
-<meta property="og:title" content="Kontakt - Zielony Azymut, szkolenia survivalowe Podkarpacie">
-<meta property="og:description" content="Skontaktuj się z Zielonym Azymutem - szkolenia survivalowe, gry terenowe i integracje. Telefon 884 033 800, Słonne i okolice, woj. podkarpackie.">
+<meta property="og:title" content="Kontakt - Zielony Azymut">
+<meta property="og:description" content="Kontakt Zielony Azymut - woj. podkarpackie">
 <meta property="og:url" content="https://impulseo-pl.github.io/zielony-azymut/kontakt.html">
 <meta property="og:image" content="https://impulseo-pl.github.io/zielony-azymut/img/og.jpg">
 <meta property="og:image:width" content="1200">
@@ -20,51 +20,31 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/styles.css?v=ceebd488">
-<script>
-/* WEJŚCIE — zasłona z banerem marki klienta (wzorzec z Meble FRONT, 12.08.2026).
-   Pokazujemy RAZ na wizytę, nie przy każdej podstronie. Zasłona jest domyślnie
-   wyłączona w CSS i włącza ją dopiero ten skrypt — przy wyłączonym JS albo przy
-   błędzie nikt nie utknie na pustym ekranie. */
-(function(){
-  try{
-    if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
-    /* ?intro na końcu adresu = wejście zagra jeszcze raz (do pokazywania klientowi) */
-    var znowu = location.search.indexOf('intro') > -1;
-    if (!znowu && sessionStorage.getItem('za-intro')) return;
-    sessionStorage.setItem('za-intro','1');
-    var h = document.documentElement;
-    h.classList.add('intro-on');
-    requestAnimationFrame(function(){ h.classList.add('intro-gra'); });
-    var zdjete = false;
-    function koniec(){
-      if (zdjete) return; zdjete = true;
-      h.classList.add('intro-out');
-      setTimeout(function(){ h.classList.remove('intro-on','intro-gra','intro-out'); }, 900);
-    }
-    setTimeout(koniec, 2300);
-    /* twardy bezpiecznik: cokolwiek by nie padło, po 4,5 s zasłony nie ma */
-    setTimeout(function(){ h.classList.remove('intro-on','intro-gra','intro-out'); }, 4500);
-    document.addEventListener('click', koniec);
-    window.addEventListener('wheel', koniec, {passive:true});
-    window.addEventListener('touchstart', koniec, {passive:true});
-    window.addEventListener('keydown', koniec);
-  }catch(e){}
-})();
-</script>
+<link rel="stylesheet" href="assets/styles.css?v=3c2e82de">
+
+<style>
+/* PASEK ARCHIWALNY - dodany 13.08.2026, żeby nikt nie wziął starej wersji za aktualną. */
+.arch-pas{position:fixed;left:0;right:0;top:0;z-index:200;display:flex;gap:.75rem;
+  align-items:center;justify-content:center;flex-wrap:wrap;
+  background:#1d2412;color:#f5e5cc;font:600 .85rem/1.3 system-ui,-apple-system,'Manrope',sans-serif;
+  padding:.6rem 1rem;box-shadow:0 2px 12px -6px rgba(0,0,0,.6)}
+.arch-pas a{color:#cfe08a;text-decoration:underline;text-underline-offset:2px}
+body{padding-top:2.6rem}
+@media(max-width:520px){.arch-pas{font-size:.78rem;padding:.5rem .7rem}body{padding-top:3.4rem}}
+</style>
 </head>
 <body>
-<div id="intro" aria-hidden="true"><img src="img/marka-baner.jpg" alt="" width="1400" height="777" fetchpriority="high"></div>
+<div class="arch-pas">Podgląd archiwalny - wersja z 11 sierpnia. <a href="../../index.html">Wróć do aktualnej strony</a> <a href="../index.html">Wszystkie wersje</a></div>
+
 
 <header class="nav">
   <div class="wrap nav-inner">
-    <a class="brand brand-has-logo" href="index.html"><img class="brand-logo" src="img/logo.png" alt="Zielony Azymut" decoding="async" width="400" height="400"></a>
+    <a class="brand brand-has-logo" href="index.html"><img class="brand-logo" src="img/logo.png" alt="Zielony Azymut" width="913" height="1053" decoding="async"></a>
     <nav class="nav-links">
       <a href="index.html">Strona główna</a>
       <a href="realizacje.html">Galeria</a>
       <a href="oferta.html">Oferta</a>
-      <a href="dla-kogo.html">Dla kogo</a>
-<a href="o-nas.html">O nas</a>
+      <a href="o-nas.html">O nas</a>
       <a href="kontakt.html" class="active" aria-current="page">Kontakt</a>
       <a href="kontakt.html" class="btn btn-accent">Zapytaj o termin</a>
     </nav>
@@ -74,11 +54,11 @@
 
 <main>
 <section class="pagehead">
-  <img src="img/g8.jpg" alt="Leśna droga, którą prowadzimy grupy" decoding="async" width="1600" height="1067">
+  <img src="img/g8.jpg" alt="Zielony Azymut - Zapytaj o termin" width="2400" height="1600" decoding="async">
   <div class="wrap">
     <span class="eyebrow">Kontakt</span>
     <h1>Zapytaj o termin</h1>
-    <p>Odpowiemy na pytania i dobierzemy program pod Waszą grupę.</p>
+    <p>Odpowiemy na pytania i przygotujemy program.</p>
   </div>
 </section>
 <section>
@@ -107,14 +87,6 @@
     </div>
   </div>
 </section>
-<section class="wizytowka-sec">
-  <div class="wrap reveal">
-    <span class="eyebrow">Wizytówka</span>
-    <img class="wizytowka" src="img/wizytowka.jpg"
-         alt="Wizytówka Zielonego Azymutu - szkolenia z surwiwalu, gry terenowe, elementy SERE"
-         loading="lazy" decoding="async" width="1400" height="800">
-  </div>
-</section>
 <section style="padding-top:0">
   <div class="wrap reveal">
     <iframe class="map" title="Zielony Azymut - Podkarpacie" src="https://maps.google.com/maps?q=Zielony%20Azymut%20Podkarpacie&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -127,14 +99,13 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="name">Zielony Azymut</div>
-        <p>Szkolenia z survivalu i przetrwania, nawigacja w terenie i gry terenowe. Podkarpacie.</p>
+        <p>Obozy nad jeziorem, szkolenia z survivalu i gry terenowe z mapą i kompasem.</p>
       </div>
       <div class="foot-col">
         <h4>Nawigacja</h4>
         <a href="index.html">Strona główna</a>
         <a href="realizacje.html">Galeria</a>
         <a href="oferta.html">Oferta</a>
-        <a href="dla-kogo.html">Dla kogo</a>
         <a href="o-nas.html">O nas</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
@@ -157,6 +128,6 @@
 <div class="sticky-reserve"><a class="sr-book" href="kontakt.html">Zapytaj o termin</a><a class="sr-call" href="tel:+48884033800" aria-label="Zadzwoń"><svg class="ico-tel" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11.4 11.4 0 0 0 3.6.58 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.58 3.6a1 1 0 0 1-.25 1l-2.23 2.2Z" fill="currentColor"/></svg></a></div>
 <div class="demo-wazne" data-do="2026-08-17" data-cykl="3" hidden><svg class="dw-ico" width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.6" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.2V12l3.3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><span class="dw-txt"></span></div>
 
-<script src="assets/main.js?v=3de5f03c"></script>
+<script src="assets/main.js"></script>
 </body>
 </html>

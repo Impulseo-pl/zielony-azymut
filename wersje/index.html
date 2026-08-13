@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zielony Azymut - wersje strony</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Wszystkie wersje strony Zielonego Azymutu - do porównania i wrócenia do wcześniejszego pomysłu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --las:#041910; --olive:#5E6A28; --krem:#F5E5CC; --linia:rgba(245,229,204,.18);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--las);color:var(--krem);
+  font:400 1rem/1.6 'Manrope',system-ui,-apple-system,sans-serif;
+  padding:clamp(1.5rem,5vw,4rem) clamp(1rem,5vw,2rem)}
+.wrap{max-width:1100px;margin:0 auto}
+header{border-bottom:1px solid var(--linia);padding-bottom:1.5rem;margin-bottom:2.5rem}
+.eyebrow{display:block;letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;
+  color:#cfe08a;margin-bottom:.6rem}
+h1{font:700 clamp(1.7rem,4vw,2.6rem)/1.15 'Lora',Georgia,serif;margin:0 0 .8rem}
+.sub{margin:0;max-width:56ch;color:rgba(245,229,204,.78)}
+.siatka{display:grid;gap:clamp(1.2rem,3vw,2rem);
+  grid-template-columns:repeat(auto-fit,minmax(17rem,1fr))}
+.karta{display:flex;flex-direction:column;background:rgba(245,229,204,.04);
+  border:1px solid var(--linia);border-radius:14px;overflow:hidden;text-decoration:none;color:inherit;
+  transition:transform .5s cubic-bezier(.16,.84,.44,1),border-color .3s}
+.karta:hover{transform:translateY(-4px);border-color:rgba(207,224,138,.5)}
+.karta img{display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:cover;object-position:top center;
+  filter:brightness(.95);transition:filter .6s,transform 1.4s cubic-bezier(.16,.84,.44,1)}
+.karta:hover img{filter:brightness(1.05);transform:scale(1.03)}
+.karta .tresc{padding:1.1rem 1.2rem 1.3rem}
+.data{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:#cfe08a}
+.karta h2{font:600 1.15rem/1.3 'Lora',Georgia,serif;margin:.45rem 0 .5rem}
+.karta p{margin:0;font-size:.92rem;color:rgba(245,229,204,.75)}
+.znacznik{display:inline-block;margin-top:.9rem;font-size:.78rem;font-weight:600;
+  padding:.25rem .6rem;border-radius:999px;background:var(--olive);color:#fff}
+.znacznik.stara{background:transparent;border:1px solid var(--linia);color:rgba(245,229,204,.7)}
+.media-obraz{overflow:hidden}
+footer{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--linia);
+  font-size:.85rem;color:rgba(245,229,204,.6)}
+footer a{color:#cfe08a}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <span class="eyebrow">Zielony Azymut</span>
+  <h1>Wersje strony</h1>
+  <p class="sub">Każda wersja zostaje pod własnym adresem, więc można je porównać obok siebie
+  i w każdej chwili wrócić do wcześniejszego pomysłu. Adres aktualnej strony się nie zmienia.</p>
+</header>
+
+<div class="siatka">
+  <a class="karta" href="../index.html">
+    <div class="media-obraz"><img src="mini/aktualna.jpg" alt="Podgląd aktualnej wersji strony" loading="lazy" decoding="async"></div>
+    <div class="tresc">
+      <span class="data">13 sierpnia</span>
+      <h2>Wersja aktualna</h2>
+      <p>Tło hero wróciło na las, poprawiony dolny pasek na telefonie, „gracz terenowy” w ofercie.</p>
+      <span class="znacznik">Tę widzi każdy, kto wejdzie na link</span>
+    </div>
+  </a>
+
+  <a class="karta" href="3-12-sierpnia-wieczor/index.html">
+    <div class="media-obraz"><img src="mini/3-12-sierpnia-wieczor.jpg" alt="Podgląd wersji z 12 sierpnia wieczorem" loading="lazy" decoding="async"></div>
+    <div class="tresc">
+      <span class="data">12 sierpnia, wieczorem</span>
+      <h2>Zdjęcia i film od klienta</h2>
+      <p>Pierwsza wersja na materiałach z Dysku: 20 zdjęć, film z gry „Kod Da Vinci”, w hero kadr z grupą na ścieżce.</p>
+      <span class="znacznik stara">Podgląd archiwalny</span>
+    </div>
+  </a>
+
+  <a class="karta" href="2-12-sierpnia-rano/index.html">
+    <div class="media-obraz"><img src="mini/2-12-sierpnia-rano.jpg" alt="Podgląd wersji z 12 sierpnia rano" loading="lazy" decoding="async"></div>
+    <div class="tresc">
+      <span class="data">12 sierpnia, rano</span>
+      <h2>Survival dla dorosłych</h2>
+      <p>Wersja po rebrandingu: logo, plakat i paleta klienta, tło hero na lesie.</p>
+      <span class="znacznik stara">Podgląd archiwalny</span>
+    </div>
+  </a>
+
+  <a class="karta" href="1-11-sierpnia/index.html">
+    <div class="media-obraz"><img src="mini/1-11-sierpnia.jpg" alt="Podgląd pierwszej wersji z 11 sierpnia" loading="lazy" decoding="async"></div>
+    <div class="tresc">
+      <span class="data">11 sierpnia</span>
+      <h2>Pierwsza wersja</h2>
+      <p>Obozy i zajęcia dla dzieci - zanim doszły materiały o szkoleniach survivalowych.</p>
+      <span class="znacznik stara">Podgląd archiwalny</span>
+    </div>
+  </a>
+</div>
+
+<footer>
+  Podgląd przygotowany przez <a href="https://impulseo.pl" target="_blank" rel="noopener">Impulseo</a>.
+  Archiwalne wersje są tylko do porównania - zmiany nanosimy zawsze na aktualnej stronie.
+</footer>
+</div>
+</body>
+</html>

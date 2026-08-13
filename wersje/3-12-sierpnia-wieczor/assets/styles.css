@@ -742,22 +742,14 @@ section{padding-block:clamp(var(--space-8),7vw,var(--space-10))}
    wyśrodkowane, równa wysokość) zapisana w base.css. Nie dublować. */
 
 /* --- STICKY-RESERVE - dolny pasek mobile (audyt 09.08 TOP#2, decyzja K.: każda rodzina) --- */
-/* 13.08.2026 — klient zgłosił, że ten pasek zasłania treść na dole (oferta).
-   Trzy poprawki: (1) rezerwa pod treścią liczona z rzeczywistej wysokości paska
-   RAZEM z paskiem systemowym telefonu (safe-area), (2) sam pasek ma zapas na
-   home-bar iPhone'a, (3) pasek chowa się, gdy widać stopkę - tam i tak są te
-   same przyciski, więc nie ma czego zasłaniać (klasa dokłada main.js). */
 .sticky-reserve{display:none}
 @media(max-width:820px){
   .sticky-reserve{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:90;
-    background:var(--line);box-shadow:0 -6px 20px -10px rgba(0,0,0,.4);
-    padding-bottom:env(safe-area-inset-bottom,0px);
-    transition:transform .25s ease,opacity .25s ease}
-  .sticky-reserve.schowany{transform:translateY(110%);opacity:0;pointer-events:none}
+    background:var(--line);box-shadow:0 -6px 20px -10px rgba(0,0,0,.4)}
   .sticky-reserve a{padding:15px 8px;text-align:center;font-weight:600;font-size:.95rem;letter-spacing:.01em}
   .sr-book{flex:1;background:var(--accent);color:#fff}
   .sr-call{width:60px;background:var(--paper);color:var(--ink);font-size:1.15rem;border-left:1px solid var(--line);display:flex;align-items:center;justify-content:center}
-  body{padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+  body{padding-bottom:56px}
 }
 
 /* === OPINIE (gated): realne cytaty z reconu ===

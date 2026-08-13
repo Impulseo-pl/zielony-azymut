@@ -714,27 +714,5 @@
 })();
 
 
-/* === DOLNY PASEK: chowa się przy stopce (prośba klienta 13.08.2026) ===
-   Klient zgłosił, że pasek „Zapytaj o termin" zasłania treść na dole strony.
-   Rezerwę pod treścią daje CSS, a tutaj dokładamy drugie zabezpieczenie:
-   gdy w kadrze pojawia się stopka albo sekcja CTA (te same przyciski),
-   pasek zjeżdża w dół i wraca dopiero po odjechaniu w górę.
-   Brak IntersectionObserver = pasek po prostu zostaje widoczny (stan sprzed zmiany). */
-(function(){
-  try{
-    var pasek = document.querySelector('.sticky-reserve');
-    if (!pasek || !('IntersectionObserver' in window)) return;
-    var cele = document.querySelectorAll('footer, .cta');
-    if (!cele.length) return;
-    var widoczne = 0;
-    var io = new IntersectionObserver(function(wpisy){
-      wpisy.forEach(function(w){ widoczne += w.isIntersecting ? 1 : -1; });
-      if (widoczne < 0) widoczne = 0;
-      pasek.classList.toggle('schowany', widoczne > 0);
-    }, {threshold: 0.01});
-    cele.forEach(function(el){ io.observe(el); });
-  }catch(e){}
-})();
-
 /* === licznik otwarć demo (buy-signal) + geo === */
 (function(){try{if(String(location.protocol).indexOf('http')!==0)return;try{if(/[?&#]team=1/.test(location.search+location.hash)){localStorage.setItem('nb_team','1');}}catch(e){}try{if(localStorage.getItem('nb_team')==='1')return;}catch(e){}if((document.referrer||'').indexOf('crm-newbeginning')>-1)return;try{if(navigator.webdriver)return;}catch(e){}try{if(/^https?:\/\/(kris20032|impulseo-pl)\.github\.io\/?$/i.test(document.referrer||''))return;}catch(e){}if(sessionStorage.getItem('_dv'))return;sessionStorage.setItem('_dv','1');var seg=(location.pathname.split('/').filter(Boolean)[0])||'';var base=location.origin+(seg?('/'+seg):'');var ua='';try{ua=(navigator.userAgent||'').slice(0,300);}catch(e){}var EP='https://zngfubfinbojfgaxdrbf.supabase.co/rest/v1/demo_views';var KEY='sb_publishable_MWwoyGlSCWnJ4awtOPF0ow_ZVS0Y8qK';function send(g){try{fetch(EP,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},body:JSON.stringify({demo_url:base,page:location.pathname,referrer:(document.referrer||null),user_agent:(ua||null),ip:(g&&g.ip)||null,country:(g&&g.cc)||null,city:(g&&g.city)||null})}).catch(function(){});}catch(e){}}var done=false;function once(g){if(done)return;done=true;send(g);}try{var t=setTimeout(function(){once(null);},1500);fetch('https://ipwho.is/?fields=ip,success,country_code,city',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){clearTimeout(t);once(d&&d.success!==false?{ip:d.ip,cc:d.country_code,city:d.city}:null);}).catch(function(){clearTimeout(t);once(null);});}catch(e){once(null);}}catch(e){}})();
