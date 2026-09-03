@@ -1618,3 +1618,24 @@ footer{view-transition-name:mt-foot}
 /* Etykieta z czasem filmu: półprzezroczyste tło na jasnym kadrze (mgła) dawało 1,28:1
    mierzone z pikseli. Pełne, ciemne tło = 12,6:1. */
 .film-czas{background:#0F1D12;opacity:.96}
+
+/* ---------- PASEK HASEŁ W PIERWSZYM EKRANIE (03.09.2026, prośba M.) ----------
+   Dwa zgłoszenia naraz: pasek ma być CHUDSZY i ma być widoczny od razu po wejściu
+   na stronę, bez przewijania. Układ paska (5 haseł obok siebie, wyśrodkowane -
+   reguła K. z 04.08) zostaje nietknięty; skracamy tylko jego wysokość, a hero
+   przycinamy do „reszty okna", żeby pasek wszedł w kadr. Bez progów - hero po
+   prostu nigdy nie zajmuje więcej niż okno minus nav minus wysokość paska. */
+.strip .wrap{padding-block:min(var(--space-5),2.6svh)}
+
+/* Tylko pulpit (>=921 px): niżej pasek jest 2- lub 1-kolumnowy, więc i tak nie
+   zmieściłby się w pierwszym ekranie - tam hero zostaje pełnowymiarowe,
+   a hasła zachowują dotychczasową (większą) typografię. */
+@media(min-width:921px){
+  .strip .wrap{gap:var(--space-4)}
+  .strip .item .k{font-size:min(clamp(1rem,.82rem + .62vw,1.32rem),2.9svh);line-height:1.15}
+  .strip .item .v{font-size:min(var(--text-sm),2.1svh);margin-top:var(--space-1)}
+  /* Wysokość hero brała się nie z min-height, tylko z globalnego padding-block
+     sekcji (7vw = ~200 px w pionie na szerokim ekranie) - hero i tak wyśrodkowuje
+     treść w pionie, więc ten zapas nic nie wnosił poza spychaniem paska pod kadr. */
+  .hero-cine{min-height:clamp(440px,calc(100svh - 205px),840px);padding-block:0}
+}
