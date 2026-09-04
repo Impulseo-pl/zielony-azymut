@@ -1636,6 +1636,10 @@ footer{view-transition-name:mt-foot}
   .strip .item .v{font-size:min(var(--text-sm),2.1svh);margin-top:var(--space-1)}
   /* Wysokość hero brała się nie z min-height, tylko z globalnego padding-block
      sekcji (7vw = ~200 px w pionie na szerokim ekranie) - hero i tak wyśrodkowuje
-     treść w pionie, więc ten zapas nic nie wnosił poza spychaniem paska pod kadr. */
-  .hero-cine{min-height:clamp(440px,calc(100svh - 205px),840px);padding-block:0}
+     treść w pionie, więc ten zapas nic nie wnosił poza spychaniem paska pod kadr.
+     04.09.2026: hero + pasek mają wypełnić okno CO DO PIKSELA (bez prześwitu kolejnej
+     sekcji pod paskiem), więc rezerwę pod pasek liczy main.js z jego realnej wysokości
+     (hasła raz łamią się na dwie linie, raz nie). 205 px to wartość zapasowa na wypadek
+     wyłączonego JS, a górnego limitu nie ma - na wysokim ekranie hero rośnie z oknem. */
+  .hero-cine{min-height:max(440px,calc(100svh - var(--pierwszy-ekran-reszta,205px)));padding-block:0}
 }

@@ -738,3 +738,32 @@
 
 /* === licznik otwarć demo (buy-signal) + geo === */
 (function(){try{if(String(location.protocol).indexOf('http')!==0)return;try{if(/[?&#]team=1/.test(location.search+location.hash)){localStorage.setItem('nb_team','1');}}catch(e){}try{if(localStorage.getItem('nb_team')==='1')return;}catch(e){}if((document.referrer||'').indexOf('crm-newbeginning')>-1)return;try{if(navigator.webdriver)return;}catch(e){}try{if(/^https?:\/\/(kris20032|impulseo-pl)\.github\.io\/?$/i.test(document.referrer||''))return;}catch(e){}if(sessionStorage.getItem('_dv'))return;sessionStorage.setItem('_dv','1');var seg=(location.pathname.split('/').filter(Boolean)[0])||'';var base=location.origin+(seg?('/'+seg):'');var ua='';try{ua=(navigator.userAgent||'').slice(0,300);}catch(e){}var EP='https://zngfubfinbojfgaxdrbf.supabase.co/rest/v1/demo_views';var KEY='sb_publishable_MWwoyGlSCWnJ4awtOPF0ow_ZVS0Y8qK';function send(g){try{fetch(EP,{method:'POST',keepalive:true,headers:{'Content-Type':'application/json','apikey':KEY,'Authorization':'Bearer '+KEY,'Prefer':'return=minimal'},body:JSON.stringify({demo_url:base,page:location.pathname,referrer:(document.referrer||null),user_agent:(ua||null),ip:(g&&g.ip)||null,country:(g&&g.cc)||null,city:(g&&g.city)||null})}).catch(function(){});}catch(e){}}var done=false;function once(g){if(done)return;done=true;send(g);}try{var t=setTimeout(function(){once(null);},1500);fetch('https://ipwho.is/?fields=ip,success,country_code,city',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){clearTimeout(t);once(d&&d.success!==false?{ip:d.ip,cc:d.country_code,city:d.city}:null);}).catch(function(){clearTimeout(t);once(null);});}catch(e){once(null);}}catch(e){}})();
+
+/* === PIERWSZY EKRAN: hero + pasek haseł dokładnie na wysokość okna (prośba M. 04.09.2026) ===
+   Sam arkusz nie zna wysokości paska - raz hasła mieszczą się w jednej linii, raz łamią
+   na dwie - więc pod paskiem zostawał kilkudziesięciopikselowy prześwit następnej sekcji.
+   Mierzymy pasek razem z nawigacją i podajemy tę rezerwę CSS-owi zmienną
+   --pierwszy-ekran-reszta. Bez JS zostaje wartość zapasowa z arkusza i strona wygląda
+   jak dotąd. Poniżej 921 px nie ruszamy niczego: pasek jest tam 1-2-kolumnowy i w pierwszym
+   ekranie i tak by się nie zmieścił. */
+(function(){
+  try{
+    var hero = document.querySelector('.hero-cine');
+    var pasek = hero && hero.nextElementSibling;
+    var nav = document.querySelector('.nav');
+    if (!hero || !nav || !pasek || !pasek.classList.contains('strip')) return;
+    var ostatnia = -1;
+    function dopasuj(){
+      if (window.innerWidth < 921) return;
+      var reszta = Math.ceil(nav.getBoundingClientRect().height + pasek.getBoundingClientRect().height);
+      if (reszta === ostatnia) return;
+      ostatnia = reszta;
+      document.documentElement.style.setProperty('--pierwszy-ekran-reszta', reszta + 'px');
+    }
+    dopasuj();
+    addEventListener('resize', dopasuj, {passive:true});
+    addEventListener('load', dopasuj);
+    if ('ResizeObserver' in window) new ResizeObserver(dopasuj).observe(pasek);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(dopasuj).catch(function(){});
+  }catch(e){}
+})();
